@@ -19,6 +19,7 @@ int main() {
     {
         cin>>input_string;
         //cout<<string_count.at(input_string);
+        //string_count.insert(make_pair(input_string,string_count[input_string]++));
         string_count[input_string]++;
     }
     cin>>number;
