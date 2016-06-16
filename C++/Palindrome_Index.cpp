@@ -1,3 +1,5 @@
+/* https://www.hackerrank.com/challenges/palindrome-index */
+
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
