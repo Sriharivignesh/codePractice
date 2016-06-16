@@ -1,3 +1,5 @@
+/* https://www.hackerrank.com/challenges/funny-string */
+
 #include <cmath>
 #include <cstdio>
 #include <vector>
