@@ -23,13 +23,15 @@ public:
         }
         int max = 1;
         int letter_count[size];
-        for(int i = 0; i < size; i++)
+        letter_count[0] = 1;
+        /*for(int i = 0; i < size; i++)  //No need to run a separate array initialisation loop. We can initialise the array elements to 1 in the following for loop itself
         {
             letter_count[i] = 1;
-        }
+        }*/
         std::sort(envelopes.begin(),envelopes.end());
         for(int i = 1; i < size; i++)
         {
+            letter_count[i] = 1;
             for(int j = 0; j < i; j++)
             {
                 if((envelopes[i].first > envelopes[j].first) && (envelopes[i].second > envelopes[j].second))
