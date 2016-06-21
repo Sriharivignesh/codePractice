@@ -11,19 +11,19 @@
 
 int DeadKeys(std::string keys, char target, std::vector<std::string> menu) {
     
-    char current = menu[0][0];
-    int maximum_steps= 9000;
-    int previous_count = 0;
-    int maximum_size = menu[0].length();
-    int i = 0;
-    std::unordered_map<char,bool> options;
+    char current = menu[0][0]; //Keep track of index character to facilitate comparisons
+    int maximum_steps= 9000;  //The result to be returned. Initialise to arbitrary large value
+    int previous_count = 0;   // To keep count of number of words with same lexicographic index to compute maximum steps
+    int maximum_size = menu[0].length(); //To keep track of word with least length in the same lexicographic index range
+    int i = 0;  //Loop iterator variable
+    std::unordered_map<char,bool> options; //To check what all characters are available in the 'keys'
     for(i = 0; i < keys.length(); i++)
     {
         options[keys[i]] = 1;
     }
     for(i = 0; i < menu.size(); i++)
     {
-        if(menu[i][0] == current && i != 0)
+        if(menu[i][0] == current && i != 0) // i != 0 because we don't want to increase 'previous_count' if the first word itself fulfils all the conditions
         {
             previous_count++;
             if(maximum_size > menu[i].length())
@@ -33,9 +33,9 @@ int DeadKeys(std::string keys, char target, std::vector<std::string> menu) {
         }
         else
         {
-            previous_count = 0;
-            current = menu[i][0];
-            maximum_size = 90000;
+            previous_count = 0; // We enter new lexicographic index, so we reset count to 0
+            current = menu[i][0]; //Change 'current' to new lexicographic index variable
+            maximum_size = 90000; 
         }
        if(menu[i].find(target) != std::string::npos && options[menu[i][0]])
        {
@@ -43,7 +43,7 @@ int DeadKeys(std::string keys, char target, std::vector<std::string> menu) {
            {
                return 1;
            }
-           int letter = 1;
+           int letter = 1; //To keep track of number of letters iterated through in 'menu[i]'
            if(maximum_steps > (previous_count + 1))
            {
                maximum_steps = previous_count + 1;
