@@ -5,17 +5,16 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-using namespace std;
 
 
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
     int number = 0;
-    cin>>number;
+    std::cin>>number;
     for(int j = 0;j < number; j++)
     {
-        string input_string;
-        cin>>input_string;
+        std::string input_string;
+        std::cin>>input_string;
         char current = input_string[0];
         int deletions = 0;
         for(int i = 1;i < input_string.length();i++)
@@ -29,7 +28,7 @@ int main() {
                 current = input_string[i];
             }
         }
-        cout<<deletions<<endl;
+        std::cout<<deletions<<std::endl;
     }
     return 0;
 }
