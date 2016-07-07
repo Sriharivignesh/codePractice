@@ -1,4 +1,4 @@
-/* https://codefights.com/challenge/3eZwiyP6btWXDxohS/main */
+/* https://codefights.com/challenge/QczEop25GyKxsRTjJ/main */
 
 #include <iostream>
 #include <algorithm>
