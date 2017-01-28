@@ -31,7 +31,7 @@ public:
             }
         }
     }
-    int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {
+    int fourSumCount(std::vector<int>& A, std::vector<int>& B, std::vector<int>& C, std::vector<int>& D) {
         int size = A.size();
         int answer = 0;
         std::unordered_map<int, int> c1; 
