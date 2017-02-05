@@ -30,7 +30,7 @@ public:
         std::stack<int> index;
         std::vector<int> result(size);
         std::fill(result.begin(), result.end(), INT_MIN);
-        for(int i = 0; i < nums.size(); i++)
+        for(int i = 0; i < (size*2); i++)
         {
             if(nge.empty() || nums[i] < nge.top())
             {
