@@ -48,6 +48,6 @@ public:
 int main()
 {
     Solution s1;
-    std::cout << s1.convertTo7(10) << "\n";
+    std::cout << s1.convertTo7(100) << "\n";
     return 0;
 }
