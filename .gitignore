@@ -70,3 +70,8 @@ Thumbs.db
 *.exe
 *.out
 *.app
+
+#cmake files
+.idea/*
+CMakeLists.txt
+cmake-build-debug/*
