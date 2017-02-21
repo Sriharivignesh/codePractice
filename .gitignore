@@ -75,3 +75,6 @@ Thumbs.db
 .idea/*
 CMakeLists.txt
 cmake-build-debug/*
+
+#Python files
+Python/.idea/*
