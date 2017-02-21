@@ -3,7 +3,6 @@ import math
 def answer(area):
     # your code here
     result_list = []
-    lookup = []
 
     while(area > 0):
         rough_side = math.sqrt(area)
