@@ -1,4 +1,6 @@
 
+
+//DOESN'T PASS THE LAST CASE!
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
@@ -20,7 +22,6 @@
 #include <numeric>
 #include <sstream>
 #include <list>
-
 
 class Solution {
 public:
@@ -77,3 +78,10 @@ public:
         return result;
     }
 };
+
+int main()
+{
+    Solution s1;
+    s1.findAnagrams("cbaebabacd", "abc");
+    return 0;
+}
