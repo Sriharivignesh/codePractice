@@ -1,47 +1,47 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <set>
 
-std::vector<std::vector<int>> ksum_helper(std::vector<int> input, int target, int k, int index)
+std::vector<std::vector<int>> ksum_helper(std::vector<int> &input, int target, int k, int index)
 {
+    int input_size = input.size();
     std::vector<std::vector<int>> output;
+
 
     if(k == 1)
     {
-        for(int i = index; i < input.size(); i++)
-        {
-            if(input[i] == target)
-            {
-                output.push_back({input[i]});
-            }
-        }
+        throw std::invalid_argument("Minimum 2 required");
     }
 
     if(k == 2)
     {
-        //Handle base case
-        std::unordered_map<int, bool> presence_lookup;
-        for(int i = index; i < input.size(); i++)
-        {
-            presence_lookup[input[i]] = false;
-        }
-        
-        for(int i = index; i < input.size(); i++)
-        {
-            if(presence_lookup[input[i]] || presence_lookup[target - input[i]])
-            {
-                continue;
-            }
+        int i = index; 
+        int j = input_size - 1;
 
-            output.push_back({input[i], target - input[i]});
-            presence_lookup[input[i]] = true;
-            presence_lookup[target - input[i]] = true;
+        std::set<std::vector<int>> temp;
+
+        while(i < j)
+        {
+            if((input[i] + input[j]) == target)
+            {
+                output.push_back({input[i], input[j]});
+                i++;
+            }
+            else if((input[i] + input[j]) > target)
+            {
+                j--;
+            }
+            else
+            {
+                i++;
+            }
         }
     }
     else
     {
         // Handle upper cases
-        for(int i = index; i < (input.size() - k + 1); i++)
+        for(int i = index; i < (input_size - k + 1); i++)
         {
             std::vector<std::vector<int>> temp = ksum_helper(input, target - input[i], k - 1, i + 1);
             for(int j = 0; j < temp.size(); j++)
@@ -56,14 +56,22 @@ std::vector<std::vector<int>> ksum_helper(std::vector<int> input, int target, in
 
 std::vector<std::vector<int>> ksum(std::vector<int> &input_vector, int target, int k)
 {
-    // Make vector unique
-    std::vector<int>::iterator it;
-    it = std::unique(input_vector.begin(), input_vector.end());
-    input_vector.resize(std::distance(input_vector.begin(), it));
-
     std::sort(input_vector.begin(), input_vector.end());
 
-    return ksum_helper(input_vector, target, k, 0);
+    std::vector<std::vector<int>> ret_vec = ksum_helper(input_vector, target, k, 0);
+
+    std::set<std::vector<int>> s;
+
+    for(auto i : ret_vec)
+    {
+        s.insert(i);
+    }
+    ret_vec.clear();
+    for(auto i : s)
+    {
+         ret_vec.push_back(i);
+    }
+    return ret_vec;
 }
 
 int main()
