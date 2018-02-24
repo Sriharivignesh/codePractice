@@ -32,7 +32,23 @@ public:
     {
          // In a while loop keep adding the same number and calling the spliced list
          // recursively. Append any results to the vector and send it back.
-         std::vector<std::vector<int>> result;   
+        std::vector<std::vector<int>> result; 
+        
+        for(int i = 0; i < candidates.size(); i++)
+	{   
+            std::vector<int> working;
+            int add_sum = 0;
+         
+            while(true)
+            {
+                add_sum += candidates[i];
+                if(add_sum > target)
+                    break;
+
+                working.push_back(candidates[i]);
+            }
+       }                
+                          
     } 
     std::vector<std::vector<int>> combinationSum(std::vector<int>& candidates, int target) 
     {
