@@ -27,10 +27,17 @@ public:
        std::sort(temp.begin(), temp.end());
 
        return temp;
+    }
+    std::vector<std::vector<int>> selector(std::vector<int>& candidates, int target)
+    {
+         // In a while loop keep adding the same number and calling the spliced list
+         // recursively. Append any results to the vector and send it back.
+         std::vector<std::vector<int>> result;   
     } 
     std::vector<std::vector<int>> combinationSum(std::vector<int>& candidates, int target) 
     {
         candidates = initialiser(candidates, target);
+        return selector(candidates, target);
     }
 };
 
