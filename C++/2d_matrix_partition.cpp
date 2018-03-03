@@ -6,7 +6,7 @@
 // the matrix, partition the matrix in such a way 
 // that the first 3 numbers are positive and the
 // rest are negative or 0 when scanned via traditional
-// for loop
+// for loop.
 
 #include <iostream>
 #include <vector>
